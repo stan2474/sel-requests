@@ -31,7 +31,7 @@ Creates a requests-like session
 ## Session.get, .post, .put, .patch, .delete
 
 ## Session.set_page(url)
-Sets the selenium instance's current page url.
+Sets the selenium instance's current page url. Used to set Sec-Fetch headers and stuff.
 
 ## Session.close()
 Closes the selenium instance.
