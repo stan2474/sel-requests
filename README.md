@@ -9,6 +9,15 @@ Lame work-around for JA3 fingerprinting websites
 - No control over cookie handling
 - No control over redirects
 
+# Usage
+```python3
+import sel_requests
+
+with sel_requess.Session() as s:
+  resp = s.get("https:///www.google.com/")
+  print(resp.text)
+```
+
 # Documentation
 
 ## Session(proxy_url=None)
