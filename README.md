@@ -4,6 +4,9 @@ Lame work-around for bypassing JA3 fingerprinting websites in Python.
 ## Pros
 - Bypass JA3 fingerprinting
 
+## Pros over cryzed/Selenium-Requests
+- No actual page rendering is done, apart from .set_page
+
 ## Cons
 - Selenium-based
 - No control over cookie handling
