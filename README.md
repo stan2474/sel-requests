@@ -13,7 +13,7 @@ Lame work-around for bypassing JA3 fingerprinting websites.
 ```python3
 import sel_requests
 
-with sel_requess.Session() as s:
+with sel_requests.Session() as s:
   resp = s.get("https://ja3er.com/json")
   print(resp.text)
 ```
