@@ -1,5 +1,5 @@
 # selenium-requests
-Lame work-around for JA3 fingerprinting websites
+Lame work-around for bypassing JA3 fingerprinting websites.
 
 ## Pros
 - Bypass JA3 fingerprinting
