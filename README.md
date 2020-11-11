@@ -14,7 +14,7 @@ Lame work-around for bypassing JA3 fingerprinting websites.
 import sel_requests
 
 with sel_requess.Session() as s:
-  resp = s.get("https:///www.google.com/")
+  resp = s.get("https://ja3er.com/json")
   print(resp.text)
 ```
 
