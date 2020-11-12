@@ -1,5 +1,6 @@
 from requests.structures import CaseInsensitiveDict
 from urllib.parse import urlencode
+from .exceptions import HTTPError
 import json as _json
 
 class Request:
@@ -57,3 +58,7 @@ class Response:
 
     def json(self):
         return _json.loads(self.text)
+    
+    def raise_for_status(self):
+        if not self.ok:
+            raise HTTPError(f"{self.status_code} {self.reason}")
