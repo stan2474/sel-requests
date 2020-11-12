@@ -7,8 +7,8 @@ with open(__file__ + "/../" + "js/request.js") as f:
 
 def create_chrome_options(proxy_url=None, user_agent=USER_AGENT):
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
     options.add_argument(f"user-agent={user_agent}")
+    options.add_argument("--headless")
     options.add_argument("--disable-web-security")
     if proxy_url:
         options.add_argument(f"--proxy-server={proxy_url}")
