@@ -3,6 +3,11 @@ from urllib.parse import urlencode
 import json as _json
 
 class Request:
+    headers: CaseInsensitiveDict
+    method: str
+    url: str
+    data: (str, bytes, dict)
+    
     def __init__(self, method, url, data=None,
                  json=None, headers=None):
         self.headers = CaseInsensitiveDict(headers)
@@ -21,6 +26,14 @@ class Request:
             self.data = data
     
 class Response:
+    url: str
+    ok: bool
+    status_code: int
+    reason: str
+    text: str
+    content: bytes
+    headers: CaseInsensitiveDict
+
     def __init__(self, url, text, headers, status_code, reason, ok):
         self.url = url
         self.ok = ok
