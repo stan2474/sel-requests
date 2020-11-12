@@ -40,8 +40,8 @@ class Session:
         self._webdriver.get(url)
 
     def send(self, request):
-        headers = dict(request.headers)
-        headers.update(self.headers)
+        headers = dict(self.headers)
+        headers.update(request.headers)
         resp = Response(**self._webdriver.execute_script(
             js_request_template,
             request.method,
