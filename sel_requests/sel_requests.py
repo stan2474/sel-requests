@@ -1,13 +1,11 @@
+from .structures import Request, Response
 from selenium import webdriver
-from requests.structures import CaseInsensitiveDict
-from urllib.parse import urlencode
-import json as _json
 
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"
 with open(__file__ + "/../" + "js/request.js") as f:
     js_request_template = f.read()
 
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"
-def create_chrome_options(proxy_url=None, user_agent=UA):
+def create_chrome_options(proxy_url=None, user_agent=USER_AGENT):
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     options.add_argument(f"user-agent={user_agent}")
@@ -15,40 +13,6 @@ def create_chrome_options(proxy_url=None, user_agent=UA):
     if proxy_url:
         options.add_argument(f"--proxy-server={proxy_url}")
     return options
-
-class Request:
-    def __init__(self, method, url, data=None,
-                 json=None, headers=None):
-        self.headers = CaseInsensitiveDict(headers)
-        self.method = method
-        self.url = url
-
-        if json:
-            self.headers["Content-Type"] = "application/json; charset=UTF-8"
-            self.data = _json.dumps(json, separators=(",",":"))
-        
-        elif type(data) == dict:
-            self.headers["Content-Type"] = "application/x-www-form-urlencoded"
-            self.data = urlencode(data)
-        
-        else:
-            self.data = data
-    
-class Response:
-    def __init__(self, url, text, headers, status_code, reason, ok):
-        self.url = url
-        self.ok = ok
-        self.status_code = status_code
-        self.reason = reason
-        self.text = text
-        self.content = text.encode("UTF-8")
-        self.headers = CaseInsensitiveDict(headers)
-
-    def __repr__(self):
-        return "<Response [%d]>" % self.status_code
-
-    def json(self):
-        return _json.loads(self.text)
 
 class Session:
     def __init__(self, proxy_url=None):
@@ -65,6 +29,12 @@ class Session:
 
     def close(self):
         self._webdriver.quit()
+
+    def set_url(self, url):
+        self._webdriver.execute_script(
+            "history.replaceState(null, null, arguments[0])",
+            url
+        )
 
     def set_page(self, url):
         self._webdriver.get(url)
