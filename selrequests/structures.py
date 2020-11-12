@@ -16,7 +16,7 @@ class Request:
         self.url = url
 
         if json is not None:
-            self.headers["Content-Type"] = "application/json; charset=UTF-8"
+            self.headers["Content-Type"] = "application/json"
             self.data = _json.dumps(json, separators=(",", ":"))
         
         elif type(data) == dict:
