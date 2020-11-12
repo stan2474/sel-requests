@@ -14,9 +14,9 @@ Lame work-around for bypassing JA3 fingerprinting websites in Python.
 
 # Usage
 ```python3
-import sel_requests
+import selrequests
 
-with sel_requests.Session() as s:
+with selrequests.Session() as s:
   resp = s.get("https://ja3er.com/json")
   print(resp.json())
 ```
