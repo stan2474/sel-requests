@@ -1,1 +1,2 @@
-from .sel_requests import Session, Request
+from .session import Session
+from .structures import Request, Response
