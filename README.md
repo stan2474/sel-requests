@@ -28,7 +28,7 @@ with selrequests.Session() as s:
 
 # Documentation
 
-## Session(proxy_url=None)
+## Session(proxy_url=None, user_agent=DEFAULT)
 Creates a requests-like session
 
 ## Session.request(method, url, data, json, headers)
@@ -39,7 +39,7 @@ Creates a requests-like session
 Sets the instance's current page url, without actually visiting it.
 
 ## Session.set_page(url)
-Sets the instance's current page url by visiting it.
+Calls `.get` on the selenium instance.
 
 ## Session.close()
 Closes the selenium instance.
