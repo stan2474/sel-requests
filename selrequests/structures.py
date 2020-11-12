@@ -61,4 +61,4 @@ class Response:
     
     def raise_for_status(self):
         if not self.ok:
-            raise HTTPError(f"{self.status_code} {self.reason}")
+            raise HTTPError(f"{self.status_code} {self.reason}", response=self)
