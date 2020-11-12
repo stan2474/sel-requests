@@ -12,6 +12,11 @@ Lame work-around for bypassing JA3 fingerprinting websites in Python.
 - No control over cookie handling
 - No control over redirects
 
+# Setup
+```bash
+pip install -U git+https://github.com/h0nde/sel-requests.git
+```
+
 # Usage
 ```python3
 import selrequests
