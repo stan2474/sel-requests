@@ -24,6 +24,9 @@ class Request:
         
         else:
             self.data = data
+
+    def __repr__(self):
+        return f"<Request [{self.method} {self.url}]>"
     
 class Response:
     url: str
@@ -44,7 +47,7 @@ class Response:
         self.headers = CaseInsensitiveDict(headers)
 
     def __repr__(self):
-        return "<Response [%d]>" % self.status_code
+        return f"<Response [{self.status_code}]>"
 
     def __enter__(self):
         return self
