@@ -1,5 +1,5 @@
 # sel-requests
-Lame work-around for bypassing JA3 fingerprinting websites in Python. Relies on Selenium, fetch() and --disable-web-security.
+Lame work-around for bypassing JA3 fingerprinting websites in Python.
 
 ## Pros
 - Bypass JA3 fingerprinting
