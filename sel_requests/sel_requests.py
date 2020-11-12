@@ -6,9 +6,11 @@ import json as _json
 with open(__file__ + "/../" + "js/request.js") as f:
     js_request_template = f.read()
 
-def create_chrome_options(proxy_url=None):
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"
+def create_chrome_options(proxy_url=None, user_agent=UA):
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
+    options.add_argument(f"user-agent={user_agent}")
     options.add_argument("--disable-web-security")
     if proxy_url:
         options.add_argument(f"--proxy-server={proxy_url}")
