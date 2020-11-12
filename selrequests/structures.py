@@ -1,6 +1,6 @@
+from .exceptions import HTTPError
 from requests.structures import CaseInsensitiveDict
 from urllib.parse import urlencode
-from .exceptions import HTTPError
 import json as _json
 
 class Request:
