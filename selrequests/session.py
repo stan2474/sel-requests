@@ -1,14 +1,12 @@
 from .structures import Request, Response
 from selenium import webdriver
-import logging
-webdriver.remote.remote_connection.LOGGER.setLevel(logging.ERROR)
-
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"
 with open(__file__ + "/../" + "js/request.js") as f:
     js_request_template = f.read()
 
 def create_chrome_options(proxy_url=None, user_agent=USER_AGENT):
     options = webdriver.ChromeOptions()
+    options.add_argument("--log-level=3")
     options.add_argument(f"user-agent={user_agent}")
     options.add_argument("--headless")
     options.add_argument("--disable-web-security")
