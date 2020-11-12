@@ -1,5 +1,8 @@
 from .structures import Request, Response
+from .exceptions import RequestException
+import selenium.common
 from selenium import webdriver
+
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"
 with open(__file__ + "/../" + "js/request.js") as f:
     js_request_template = f.read()
@@ -45,13 +48,16 @@ class Session:
     def send(self, request):
         headers = dict(self.headers)
         headers.update(request.headers)
-        resp = Response(**self._webdriver.execute_script(
-            js_request_template,
-            request.method,
-            request.url,
-            request.data,
-            headers
-        ))
+        try:
+            resp = Response(**self._webdriver.execute_script(
+                js_request_template,
+                request.method,
+                request.url,
+                request.data,
+                headers
+            ))
+        except selenium.common.exceptions.JavascriptException as err:
+            raise RequestException(err.msg)
         return resp
 
     def request(self, *v, **kw):
