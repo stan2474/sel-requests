@@ -18,7 +18,7 @@ import sel_requests
 
 with sel_requests.Session() as s:
   resp = s.get("https://ja3er.com/json")
-  print(resp.text)
+  print(resp.json())
 ```
 
 # Documentation
