@@ -6,6 +6,7 @@ with open(__file__ + "/../" + "js/request.js") as f:
 
 def create_chrome_options(proxy_url=None, user_agent=USER_AGENT):
     options = webdriver.ChromeOptions()
+    options.add_experimental_option("excludeSwitches", ["enable-logging"])
     options.add_argument("--log-level=3")
     options.add_argument(f"user-agent={user_agent}")
     options.add_argument("--headless")
@@ -19,7 +20,8 @@ class Session:
         self.user_agent = user_agent
         self.headers = {}
         self._webdriver = webdriver.Chrome(
-            options=create_chrome_options(proxy_url, self.user_agent)
+            options=create_chrome_options(proxy_url, self.user_agent),
+            service_log_path="NUL"
         )
 
     def __enter__(self):
