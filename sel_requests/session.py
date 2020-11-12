@@ -30,7 +30,7 @@ class Session:
     def close(self):
         self._webdriver.quit()
 
-    def set_url(self, url):
+    def set_origin(self, url):
         self._webdriver.execute_script(
             "history.replaceState(null, null, arguments[0])",
             url
