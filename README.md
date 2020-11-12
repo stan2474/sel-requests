@@ -11,6 +11,7 @@ Lame work-around for bypassing JA3 fingerprinting websites in Python.
 - Selenium-based
 - No control over cookie handling
 - No control over redirects
+- All the limits of fetch(), except for CORS/SOP
 
 # Setup
 ```bash
