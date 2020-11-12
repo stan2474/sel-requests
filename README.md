@@ -1,4 +1,4 @@
-# selenium-requests
+# sel-requests
 Lame work-around for bypassing JA3 fingerprinting websites in Python.
 
 ## Pros
