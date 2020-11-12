@@ -1,2 +1,2 @@
-from .session import Session
+from .sessions import Session
 from .structures import Request, Response
