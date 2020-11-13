@@ -1,5 +1,5 @@
 # sel-requests
-Lame work-around for bypassing TLS fingerprinting in Python.
+Lame work-around for evading TLS fingerprinting in Python.
 
 ## Pros
 - Bypass JA3 fingerprinting
