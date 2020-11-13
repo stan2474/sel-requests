@@ -1,5 +1,5 @@
 # sel-requests
-A selenium-based work-around for evading TLS fingerprinting in Python.
+A selenium-based requests module for evading TLS fingerprinting in Python.
 
 ## Pros
 - Bypass JA3 fingerprinting
