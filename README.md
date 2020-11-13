@@ -7,7 +7,7 @@ A selenium-based requests module for evading TLS fingerprinting in Python.
 
 ## Cons
 - Selenium-based
-- No control over cookie handling
+- No control over cookies
 - No control over redirects
 - All other limits of fetch(), except for CORS/SOP
 
