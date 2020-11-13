@@ -2,6 +2,8 @@ from .structures import Request, Response
 from .exceptions import RequestException, HTTPError
 from selenium import webdriver
 import selenium.common
+import os
+import signal
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"
 with open(__file__ + "/../" + "js/request.js") as f:
@@ -34,7 +36,15 @@ class Session:
         self.close()
 
     def close(self):
+        pid = int(driver.service.process.pid)
         self._webdriver.quit()
+        try:
+            os.kill(
+                pid,
+                signal.SIGTERM
+            )
+        except:
+            pass
 
     def set_origin(self, url):
         self._webdriver.execute_script(
