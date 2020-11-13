@@ -36,7 +36,7 @@ class Session:
         self.close()
 
     def close(self):
-        pid = int(driver.service.process.pid)
+        pid = int(self._webdriver.service.process.pid)
         self._webdriver.quit()
         try:
             os.kill(
