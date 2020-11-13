@@ -37,5 +37,5 @@ Creates a requests-like session
 ### Session.set_origin(url)
 Sets the instance's current page url, useful for setting Referer/Origin/Sec-Fetch headers.
 
-## Session.close()
+### Session.close()
 Closes the selenium instance.
