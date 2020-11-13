@@ -1,11 +1,9 @@
 # sel-requests
-Lame work-around for evading TLS fingerprinting in Python.
+A selenium-based work-around for evading TLS fingerprinting in Python.
 
 ## Pros
 - Bypass JA3 fingerprinting
-
-## Pros over cryzed/Selenium-Requests
-- No actual page rendering is done, apart from .set_page
+- Uses `fetch()` to send requests, therefore no actual page rendering is done
 
 ## Cons
 - Selenium-based
