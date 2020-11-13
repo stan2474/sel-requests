@@ -21,13 +21,14 @@ def create_chrome_options(proxy_url=None, user_agent=USER_AGENT):
     return options
 
 class Session:
-    def __init__(self, proxy_url=None, user_agent=USER_AGENT):
+    def __init__(self, proxy_url=None, user_agent=USER_AGENT, timeout=10):
         self.user_agent = user_agent
         self.headers = {}
         self._webdriver = webdriver.Chrome(
             options=create_chrome_options(proxy_url, self.user_agent),
             service_log_path="NUL"
         )
+        self._webdriver.set_script_timeout(timeout)
 
     def __enter__(self):
         return self
