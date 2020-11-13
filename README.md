@@ -3,7 +3,7 @@ A selenium-based requests module for evading TLS fingerprinting in Python.
 
 ## Pros
 - Bypass JA3 fingerprinting
-- Uses `fetch()` to send requests, therefore no actual page rendering is done
+- Uses `fetch()` to send requests, thus no actual page rendering is done
 
 ## Cons
 - Selenium-based
