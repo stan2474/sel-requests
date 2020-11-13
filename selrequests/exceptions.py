@@ -1,5 +1,5 @@
 class RequestException(Exception):
     pass
 
-class HTTPError(Exception):
+class HTTPError(RequestException):
     pass
