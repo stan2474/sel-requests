@@ -11,6 +11,8 @@ with open(__file__ + "/../" + "js/request.js") as f:
 
 def create_chrome_options(proxy_url=None, user_agent=USER_AGENT):
     options = webdriver.ChromeOptions()
+     options.binary_location = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+  chrome_driver_binary = r"C:/chromedriver/chromedriver.exe"
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     options.add_argument("--log-level=3")
     options.add_argument(f"user-agent={user_agent}")
